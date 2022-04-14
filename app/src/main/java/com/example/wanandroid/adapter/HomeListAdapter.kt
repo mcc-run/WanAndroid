@@ -1,12 +1,14 @@
 package com.example.wanandroid.adapter
 
 import android.media.Image
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -182,6 +184,11 @@ class HomeListAdapter(val homeListViewModel: HomeListViewModel) :
                     toTop.visibility = if (it.isTop)View.VISIBLE else View.GONE
                     refresh.visibility = if (it.fresh)View.VISIBLE else View.GONE
                     thumb.setImageResource(if (it.collect)R.drawable.ic_thumb_fill else R.drawable.ic_thumb)
+                    val bundle = Bundle()
+                    bundle.putString("url",articleEntity.link)
+                    this.setOnClickListener {
+                        this.findNavController().navigate(R.id.action_homeListFragment_to_articleFragment,bundle)
+                    }
                 }
 
             }

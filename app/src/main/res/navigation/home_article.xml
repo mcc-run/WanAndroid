@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_articleFragment_to_homeListFragment"
             app:destination="@id/homeListFragment" />
+        <argument
+            android:name="url"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/homeListFragment"

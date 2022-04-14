@@ -1,6 +1,7 @@
 package com.example.wanandroid.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +40,11 @@ class SlideShowAdapter() : RecyclerView.Adapter<SlideShowAdapter.ViewHolder>(){
             .load(data[position].imagePath)
             .placeholder(R.drawable.loading)
             .into(holder.imageView)
-
+        val bundle = Bundle()
+        bundle.putString("url",data[position].url)
+        holder.itemView.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_homeListFragment_to_articleFragment,bundle)
+        }
     }
 
     override fun getItemCount(): Int {
