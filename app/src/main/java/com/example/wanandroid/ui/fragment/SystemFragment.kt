@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.wanandroid.R
 import com.example.wanandroid.adapter.SystemAdapter
 import com.example.wanandroid.databinding.FragmentSystemBinding
@@ -39,9 +40,14 @@ class SystemFragment : Fragment() {
             Toast.makeText((activity as Context), "您在体系页面点击了搜索按钮", Toast.LENGTH_SHORT).show()
         }
 
-        val systemAdapter = SystemAdapter(systemViewModel)
+        val systemAdapter = SystemAdapter(systemViewModel,viewLifecycleOwner)
         binding.ViewPagerSys.adapter = systemAdapter
 
+        binding.test.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("url","https://www.baidu.com")
+            this.findNavController().navigate(R.id.action_systemFragment_to_articleSysFragment,bundle)
+        }
 
         TabLayoutMediator(binding.tabLayoutSys, binding.ViewPagerSys) { tab, position ->
             tab.text = systemViewModel.pages[position]

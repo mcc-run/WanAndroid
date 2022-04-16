@@ -2,24 +2,26 @@ package com.example.wanandroid.ui.fragment
 
 import android.os.Bundle
 import android.view.KeyEvent
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.fragment.app.Fragment
 import com.example.wanandroid.R
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-class ArticleFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ArticleFragment()
-    }
-
-
-
+/**
+ * A simple [Fragment] subclass.
+ * Use the [ArticleSysFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class ArticleSysFragment : Fragment() {
     private var url = "https://www.baidu.com"
 
     lateinit var webView : WebView
@@ -28,7 +30,7 @@ class ArticleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val inflate = inflater.inflate(R.layout.article_fragment, container, false)
+        val inflate = inflater.inflate(R.layout.fragment_article_sys, container, false)
         //获得控件
         webView = inflate.findViewById(R.id.WebView_article) as WebView
 

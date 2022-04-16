@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/system_article"
+    android:id="@+id/system_navigation"
     app:startDestination="@id/systemFragment">
 
     <fragment
@@ -11,12 +11,14 @@
         android:label="fragment_system"
         tools:layout="@layout/fragment_system" >
         <action
-            android:id="@+id/action_systemFragment_to_articleFragment2"
-            app:destination="@id/articleFragment2" />
+            android:id="@+id/action_systemFragment_to_articleSysFragment"
+            app:destination="@id/articleSysFragment" />
     </fragment>
     <fragment
-        android:id="@+id/articleFragment2"
-        android:name="com.example.wanandroid.ui.fragment.ArticleFragment"
-        android:label="article_fragment"
-        tools:layout="@layout/article_fragment" />
+        android:id="@+id/articleSysFragment"
+        android:name="com.example.wanandroid.ui.fragment.ArticleSysFragment"
+        android:label="fragment_article_sys"
+        tools:layout="@layout/fragment_article_sys" >
+        <argument android:name="url" />
+    </fragment>
 </navigation>

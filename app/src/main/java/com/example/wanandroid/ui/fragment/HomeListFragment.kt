@@ -98,8 +98,8 @@ class HomeListFragment : Fragment() {
             scrollToTop()
         }
         homeListViewModel.networkStatus.observe(viewLifecycleOwner, Observer {
-            if (!(homeListAdapter.getNetworkStatus() != NetworkStatus.INITIAL_LOADING &&
-                        it == NetworkStatus.LOADED)) {
+            if (homeListAdapter.getNetworkStatus() == NetworkStatus.INITIAL_LOADING &&
+                        it == NetworkStatus.LOADED) {
                 scrollToTop()
             }
             homeListAdapter.updateNetworkStatus(it)
