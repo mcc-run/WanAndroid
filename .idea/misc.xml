@@ -24,13 +24,17 @@
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/fragment_my.xml" value="0.1802536231884058" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/fragment_public.xml" value="0.18070652173913043" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/fragment_slide_show_photo.xml" value="0.19519927536231885" />
+        <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/fragment_sys_detail.xml" value="0.1897644927536232" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/fragment_system.xml" value="0.1802536231884058" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/gallery_footer.xml" value="0.19519927536231885" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/home_list_fragment.xml" value="0.264" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/list_footer.xml" value="0.14673913043478262" />
+        <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/screen_system.xml" value="0.2" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/slideshow_layout.xml" value="0.1802536231884058" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/slideshow_photo_layout.xml" value="0.19519927536231885" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/slideshowlayout.xml" value="0.1802536231884058" />
+        <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/sys_article_item_layout.xml" value="0.1897644927536232" />
+        <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/sys_article_list_layout.xml" value="0.1802536231884058" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/sys_nav_item_layout.xml" value="0.20425724637681159" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/sys_nav_itemlayout.xml" value="0.20425724637681159" />
         <entry key="..\:/Android/AndroidStudioProjects/WanAndroid/app/src/main/res/layout/sys_navigation_layout.xml" value="0.19519927536231885" />

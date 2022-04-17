@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/system_navigation"
     app:startDestination="@id/systemFragment">
-
     <fragment
         android:id="@+id/systemFragment"
         android:name="com.example.wanandroid.ui.fragment.SystemFragment"
         android:label="fragment_system"
         tools:layout="@layout/fragment_system" >
         <action
-            android:id="@+id/action_systemFragment_to_articleSysFragment"
-            app:destination="@id/articleSysFragment" />
+            android:id="@+id/action_systemFragment_to_articleFragment2"
+            app:destination="@id/articleFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/articleSysFragment"
-        android:name="com.example.wanandroid.ui.fragment.ArticleSysFragment"
-        android:label="fragment_article_sys"
-        tools:layout="@layout/fragment_article_sys" >
+        android:id="@+id/articleFragment2"
+        android:name="com.example.wanandroid.ui.fragment.ArticleFragment"
+        android:label="article_fragment"
+        tools:layout="@layout/article_fragment" >
         <argument android:name="url" />
     </fragment>
 </navigation>

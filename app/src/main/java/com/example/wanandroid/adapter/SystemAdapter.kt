@@ -83,16 +83,12 @@ class SystemAdapter(val systemViewModel: SystemViewModel, val lifecycleOwner: Li
                     var last_pos = 0
                     //获取RecycleView的点击操控
                     reItem.setOnTouchListener(OnTouchListener { v, event -> //当滑动由recyclerView触发时，isRecyclerScroll 置true
-                        if (event.action == MotionEvent.ACTION_DOWN) {
                             model.isScroll.postValue(true)
-                        }
                         false
                     })
                     //获取RecycleView的点击操控
                     reNav.setOnTouchListener(OnTouchListener { v, event -> //当滑动由recyclerView触发时，isRecyclerScroll 置true
-                        if (event.action == MotionEvent.ACTION_DOWN) {
                             model.isScroll.postValue(false)
-                        }
                         false
                     })
 

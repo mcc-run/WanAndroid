@@ -16,6 +16,7 @@ import androidx.core.view.isEmpty
 import androidx.core.view.isNotEmpty
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.R
 import com.example.wanandroid.entity.Article
@@ -95,6 +96,7 @@ class SysNavItemAdapter() : RecyclerView.Adapter<SysNavItemAdapter.DetailHolder>
             button.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("url",article.link)
+                view.findNavController().navigate(R.id.action_systemFragment_to_articleFragment2,bundle)
             }
             button.layoutParams = buttonParams
             button.measure(0, 0)

@@ -7,23 +7,23 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.wanandroid.ui.fragment.HomeFragment"
+        android:name="com.example.wanandroid.ui.screen.HomeScreen"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/screen_home" />
     <fragment
         android:id="@+id/navigation_my"
-        android:name="com.example.wanandroid.ui.fragment.MyFragment"
+        android:name="com.example.wanandroid.ui.screen.MyScreen"
         android:label="@string/title_my"
-        tools:layout="@layout/fragment_my" />
+        tools:layout="@layout/screen_my" />
     <fragment
         android:id="@+id/navigation_system"
-        android:name="com.example.wanandroid.ui.fragment.SystemFragment"
+        android:name="com.example.wanandroid.ui.screen.SystemScreen"
         android:label="@string/title_system"
-        tools:layout="@layout/fragment_system" />
+        tools:layout="@layout/screen_system" />
     <fragment
         android:id="@+id/navigation_public"
-        android:name="com.example.wanandroid.ui.fragment.publicFragment"
+        android:name="com.example.wanandroid.ui.screen.PublicScreen"
         android:label="@string/title_public"
-        tools:layout="@layout/fragment_public" />
+        tools:layout="@layout/screen_public" />
 
 </navigation>

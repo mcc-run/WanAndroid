@@ -1,4 +1,4 @@
-package com.example.wanandroid.ui.fragment
+package com.example.wanandroid.ui.screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.wanandroid.adapter.HomeListAdapter
-import com.example.wanandroid.databinding.FragmentHomeBinding
-import com.example.wanandroid.viewmodel.HomeListViewModel
+import com.example.wanandroid.databinding.ScreenHomeBinding
 import com.example.wanandroid.viewmodel.HomeViewModel
 
-class HomeFragment : Fragment() {
+class HomeScreen : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: ScreenHomeBinding? = null
 
     private val binding get() = _binding!!
 
@@ -26,7 +23,7 @@ class HomeFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this)[HomeViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = ScreenHomeBinding.inflate(inflater, container, false)
 
 
 

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.adapter.SysNavItemAdapter
 import com.example.wanandroid.adapter.SysNavTypeAdapter
 import com.example.wanandroid.adapter.SysSystemAdapter
+import com.example.wanandroid.entity.Chapter
 import com.example.wanandroid.entity.NavigationJson
 import com.example.wanandroid.entity.SystemJson
 import com.example.wanandroid.http.retrofitUtil
@@ -20,12 +21,17 @@ class SystemViewModel : ViewModel() {
 
     val pages = arrayOf("体系","导航")
 
+    var chapters = MutableLiveData<List<Chapter>?>()
+
+
     fun getSystemData(adapter : SysSystemAdapter){
         val retrofit = retrofitUtil.create(SystemService::class.java)
         retrofit.getTreeJson().enqueue(object : Callback<SystemJson>{
             override fun onResponse(call: Call<SystemJson>, response: Response<SystemJson>) {
                 val data = response.body()!!
                 adapter.chapters = data.data!!
+                chapters.value = null
+                chapters.postValue(data.data!!)
                 adapter.notifyDataSetChanged()
             }
 

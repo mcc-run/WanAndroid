@@ -1,4 +1,4 @@
-package com.example.wanandroid.ui.fragment
+package com.example.wanandroid.ui.screen
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
@@ -8,17 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.wanandroid.databinding.FragmentPublicBinding
+import com.example.wanandroid.databinding.ScreenPublicBinding
 import com.example.wanandroid.viewmodel.PublicViewModel
 
-class publicFragment : Fragment() {
+class PublicScreen : Fragment() {
 
-    private var _binding : FragmentPublicBinding? = null
+    private var _binding : ScreenPublicBinding? = null
 
     private val binding get() = _binding!!
 
     companion object {
-        fun newInstance() = publicFragment()
+        fun newInstance() = PublicScreen()
     }
 
     private lateinit var viewModel: PublicViewModel
@@ -29,10 +29,10 @@ class publicFragment : Fragment() {
     ): View? {
         viewModel = ViewModelProvider(this).get(PublicViewModel::class.java)
 
-        _binding = FragmentPublicBinding.inflate(inflater, container, false)
+        _binding = ScreenPublicBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.toolbarPublic.titleLabel.text = "体系"
+        binding.toolbarPublic.titleLabel.text = "公众号"
         binding.toolbarPublic.titleSearch.setOnClickListener{
             Toast.makeText((activity as Context),"您在公众号页面点击了搜索按钮", Toast.LENGTH_SHORT).show()
         }

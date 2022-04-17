@@ -1,4 +1,4 @@
-package com.example.wanandroid.ui.fragment
+package com.example.wanandroid.ui.screen
 
 import android.content.Context
 import android.os.Bundle
@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.wanandroid.databinding.FragmentMyBinding
+import com.example.wanandroid.databinding.ScreenMyBinding
+
 import com.example.wanandroid.viewmodel.MyViewModel
 
-class MyFragment : Fragment() {
+class MyScreen : Fragment() {
 
-    private var _binding: FragmentMyBinding? = null
+    private var _binding: ScreenMyBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,7 +28,7 @@ class MyFragment : Fragment() {
         val notificationsViewModel =
             ViewModelProvider(this).get(MyViewModel::class.java)
 
-        _binding = FragmentMyBinding.inflate(inflater, container, false)
+        _binding = ScreenMyBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 

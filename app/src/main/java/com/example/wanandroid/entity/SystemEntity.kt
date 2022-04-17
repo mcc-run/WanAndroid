@@ -17,8 +17,9 @@ data class Chapter(
 )
 
 data class Children(
-    val courseId : Int = 0,
     val id : Int = 0,
     val name : String = "",
-    val parentChapterId : Int = 0,
 )
+
+
+
