@@ -1,11 +1,13 @@
 package com.example.wanandroid.adapter
 
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.R
 import com.example.wanandroid.entity.Chapter
@@ -19,7 +21,7 @@ class SysSystemAdapter : RecyclerView.Adapter<SysSystemAdapter.SysHolder>(){
     }
 
     override fun onBindViewHolder(holder: SysHolder, position: Int) {
-        holder.bindWithChapter(chapters[position])
+        holder.bindWithChapter(chapters[position],position)
     }
 
     override fun getItemCount(): Int {
@@ -35,7 +37,7 @@ class SysSystemAdapter : RecyclerView.Adapter<SysSystemAdapter.SysHolder>(){
             }
         }
 
-        fun bindWithChapter(chapter : Chapter) {
+        fun bindWithChapter(chapter : Chapter,position: Int) {
             with(itemView){
                 val title = this.findViewById<TextView>(R.id.Title_sys)
                 title.text = chapter.name
@@ -45,7 +47,11 @@ class SysSystemAdapter : RecyclerView.Adapter<SysSystemAdapter.SysHolder>(){
                     toString()
                 }
                 itemView.setOnClickListener {
-                    Log.d("bindWithChapter", title.text as String)
+//                    点击后跳转二级页面
+                    with(Bundle()){
+                        putInt("pos1",position)
+                        it.findNavController().navigate(R.id.action_systemFragment_to_sysSysDetailFragment,this)
+                    }
                 }
             }
         }

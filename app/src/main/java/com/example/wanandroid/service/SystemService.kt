@@ -6,6 +6,7 @@ import com.example.wanandroid.entity.SystemJson
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface SystemService {
 
@@ -15,7 +16,7 @@ interface SystemService {
     @GET("navi/json")
     fun getNavJSON() : Call<NavigationJson>
 
-    @GET("{page}/json?cid={cid}")
-    fun getArticleList(@Path("page") page : Int,@Path("cid") cid : Int) : Call<ArticleJson>
+    @GET("article/list/{page}/json")
+    fun getArticleList(@Path("page") page : Int,@Query("cid")cid : Int) : Call<ArticleJson>
 
 }

@@ -2,7 +2,6 @@ package com.example.wanandroid.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
@@ -17,19 +16,19 @@ class SystemAdapter(val systemViewModel: SystemViewModel, val lifecycleOwner: Li
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
-        return if (position == 0) R.layout.sys_system_layout else R.layout.sys_navigation_layout
+        return if (position == 0) R.layout.recycleview else R.layout.sys_navigation_layout
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            R.layout.sys_system_layout -> SysstemHolder.newInstance(parent)
+            R.layout.recycleview -> SystemHolder.newInstance(parent)
             else -> NavHolder.newInstance(parent, systemViewModel,lifecycleOwner)
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
-            R.layout.sys_system_layout -> (holder as SysstemHolder).bindWithModel(systemViewModel)
+            R.layout.recycleview -> (holder as SystemHolder).bindWithModel(systemViewModel)
             else -> { (holder as NavHolder).bindWithModel(systemViewModel) }
         }
     }
@@ -38,16 +37,16 @@ class SystemAdapter(val systemViewModel: SystemViewModel, val lifecycleOwner: Li
         return systemViewModel.pages.size
     }
 
-    class SysstemHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SystemHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
         companion object {
-            fun newInstance(parent: ViewGroup): SysstemHolder {
+            fun newInstance(parent: ViewGroup): SystemHolder {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.sys_system_layout, parent, false)
+                    .inflate(R.layout.recycleview, parent, false)
                 val recyclerView = view.findViewById<RecyclerView>(R.id.recycleView_sys)
                 val adapter = SysSystemAdapter()
                 recyclerView.layoutManager = LinearLayoutManager(parent.context)
                 recyclerView.adapter = adapter
-                return SysstemHolder(view)
+                return SystemHolder(view)
             }
         }
 

@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_systemFragment_to_articleFragment2"
             app:destination="@id/articleFragment2" />
+        <action
+            android:id="@+id/action_systemFragment_to_sysSysDetailFragment"
+            app:destination="@id/sysSysDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment2"
@@ -19,5 +22,18 @@
         android:label="article_fragment"
         tools:layout="@layout/article_fragment" >
         <argument android:name="url" />
+    </fragment>
+    <fragment
+        android:id="@+id/sysSysDetailFragment"
+        android:name="com.example.wanandroid.ui.fragment.SysSysDetailFragment"
+        android:label="fragment_sys_sys_detail"
+        tools:layout="@layout/fragment_sys_sys_detail" >
+        <action
+            android:id="@+id/action_sysSysDetailFragment_to_articleFragment2"
+            app:destination="@id/articleFragment2" />
+        <argument
+            android:name="pos1"
+            app:argType="integer"
+            android:defaultValue="60" />
     </fragment>
 </navigation>

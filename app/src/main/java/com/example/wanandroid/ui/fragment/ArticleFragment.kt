@@ -5,9 +5,8 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebResourceRequest
+import android.webkit.WebChromeClient
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.example.wanandroid.R
 
@@ -39,14 +38,8 @@ class ArticleFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         url = arguments?.getString("url","https://www.baidu.com").toString()
         webView.settings.javaScriptEnabled = true
-        webView.webViewClient = object : WebViewClient(){
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                return false
-            }
-        }
+        webView.webChromeClient = WebChromeClient()
+
         webView.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
             if (event.action === KeyEvent.ACTION_DOWN) {
                 //按返回键操作并且能回退网页
