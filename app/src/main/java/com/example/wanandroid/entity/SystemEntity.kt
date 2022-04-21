@@ -8,7 +8,7 @@ data class SystemJson(
 )
 
 data class Chapter(
-    val children : List<Children>,
+    val children : List<data>,
     val courseId : Int = 0,
     val id : Int = 0,
     val name : String = "",
@@ -16,10 +16,6 @@ data class Chapter(
     val parentChapterId: Int = 0
 )
 
-data class Children(
-    val id : Int = 0,
-    val name : String = "",
-)
 
 
 

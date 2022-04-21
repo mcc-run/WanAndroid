@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/public_navigation"
+    app:startDestination="@id/publicFragment">
+
+    <fragment
+        android:id="@+id/publicFragment"
+        android:name="com.example.wanandroid.ui.fragment.PublicFragment"
+        android:label="fragment_public"
+        tools:layout="@layout/fragment_public" >
+        <action
+            android:id="@+id/action_publicFragment_to_articleFragment3"
+            app:destination="@id/articleFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment3"
+        android:name="com.example.wanandroid.ui.fragment.ArticleFragment"
+        android:label="article_fragment"
+        tools:layout="@layout/article_fragment" >
+        <argument android:name="url" />
+    </fragment>
+</navigation>

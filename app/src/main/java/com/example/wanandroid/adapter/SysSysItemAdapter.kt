@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.R
 import com.example.wanandroid.entity.ArticleEntity
 
-class SysSysItemAdapter : PagedListAdapter<ArticleEntity, RecyclerView.ViewHolder>(HomeListAdapter.DiffCallback) {
+class SysSysItemAdapter(val actionId : Int) : PagedListAdapter<ArticleEntity, RecyclerView.ViewHolder>(HomeListAdapter.DiffCallback) {
 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as Holder).bindWithArticle(getItem(position)!!)
+        (holder as Holder).bindWithArticle(getItem(position)!!,actionId)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -33,7 +33,7 @@ class SysSysItemAdapter : PagedListAdapter<ArticleEntity, RecyclerView.ViewHolde
             }
         }
 
-        fun bindWithArticle(articleEntity: ArticleEntity) {
+        fun bindWithArticle(articleEntity: ArticleEntity,actionId : Int) {
             with(itemView) {
                 val author = findViewById<TextView>(R.id.author)
                 val date = findViewById<TextView>(R.id.date)
@@ -49,7 +49,7 @@ class SysSysItemAdapter : PagedListAdapter<ArticleEntity, RecyclerView.ViewHolde
                     val bundle = Bundle()
                     bundle.putString("url",articleEntity.link)
                     this.setOnClickListener {
-                        this.findNavController().navigate(R.id.action_sysSysDetailFragment_to_articleFragment2,bundle)
+                        this.findNavController().navigate(actionId,bundle)
                     }
                 }
 

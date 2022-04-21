@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import com.example.wanandroid.databinding.ScreenPublicBinding
 import com.example.wanandroid.viewmodel.PublicViewModel
 
@@ -21,13 +22,13 @@ class PublicScreen : Fragment() {
         fun newInstance() = PublicScreen()
     }
 
-    private lateinit var viewModel: PublicViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(PublicViewModel::class.java)
+        val viewModel by activityViewModels<PublicViewModel>()
 
         _binding = ScreenPublicBinding.inflate(inflater, container, false)
         val root: View = binding.root

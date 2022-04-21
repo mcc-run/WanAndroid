@@ -6,15 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.toLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wanandroid.Factory.SysArticleDataSourceFactory
+import com.example.wanandroid.Factory.PubArticleDataSourceFactory
 import com.example.wanandroid.R
 import com.example.wanandroid.entity.data
 
-class SysSysDetailAdapter(val children: List<data>, val lifecycleOwner: LifecycleOwner, val context: Context) :
-    RecyclerView.Adapter<SysSysDetailAdapter.Holder>() {
+class PubViewPagerAdapter(
+    val author: MutableLiveData<List<data>?>,
+    val lifecycleOwner: LifecycleOwner,
+    val context: Context) : RecyclerView.Adapter<PubViewPagerAdapter.Holder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -22,37 +25,32 @@ class SysSysDetailAdapter(val children: List<data>, val lifecycleOwner: Lifecycl
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bindWithId(children[position].id,lifecycleOwner, context)
+        holder.bindWithId(author.value!!.get(position).id,lifecycleOwner,context)
     }
 
     override fun getItemCount(): Int {
-        return children.size
+        return author.value?.size ?: 0
     }
 
-    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        companion object {
+    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        companion object{
             fun newInstance(parent: ViewGroup): Holder {
-                val inflater = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.recycleview, parent, false)
+                val inflater = LayoutInflater.from(parent.context).inflate(R.layout.recycleview,parent,false)
                 return Holder(inflater)
             }
         }
-
-        fun bindWithId(id: Int,lifecycleOwner: LifecycleOwner,context: Context) {
-            val adapter = SysSysItemAdapter(R.id.action_sysSysDetailFragment_to_articleFragment2)
+        fun bindWithId(id: Int, lifecycleOwner: LifecycleOwner, context: Context) {
+            val adapter = SysSysItemAdapter(R.id.action_publicFragment_to_articleFragment3)
             val recycleView = itemView.findViewById<RecyclerView>(R.id.RecycleView)
             recycleView.adapter = adapter
             recycleView.layoutManager = LinearLayoutManager(context)
 //    用于获取文章列表
-            val articleDataSourceFactory = SysArticleDataSourceFactory(id)
+            val articleDataSourceFactory = PubArticleDataSourceFactory(id)
             val articleList = articleDataSourceFactory.toLiveData(1)
 
             articleList.observe(lifecycleOwner) {
-                Log.d("bindWithId",it.toString())
                 adapter.submitList(it)
             }
         }
-
     }
-
 }

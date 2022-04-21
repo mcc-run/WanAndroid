@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.wanandroid.R
 import com.example.wanandroid.adapter.SysSysDetailAdapter
 import com.example.wanandroid.databinding.FragmentSysSysDetailBinding
-import com.example.wanandroid.entity.Children
+import com.example.wanandroid.entity.data
 import com.example.wanandroid.viewmodel.SystemViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -40,7 +39,7 @@ class SysSysDetailFragment : Fragment() {
 
         pos = arguments?.getInt("pos1",61)!!
 
-        val children : List<Children> = model.chapters.value!![pos].children
+        val children : List<data> = model.chapters.value!![pos].children
 
         val adapter = SysSysDetailAdapter(children,viewLifecycleOwner,requireContext())
 

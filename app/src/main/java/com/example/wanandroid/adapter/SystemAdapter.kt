@@ -42,7 +42,7 @@ class SystemAdapter(val systemViewModel: SystemViewModel, val lifecycleOwner: Li
             fun newInstance(parent: ViewGroup): SystemHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.recycleview, parent, false)
-                val recyclerView = view.findViewById<RecyclerView>(R.id.recycleView_sys)
+                val recyclerView = view.findViewById<RecyclerView>(R.id.RecycleView)
                 val adapter = SysSystemAdapter()
                 recyclerView.layoutManager = LinearLayoutManager(parent.context)
                 recyclerView.adapter = adapter
@@ -51,7 +51,7 @@ class SystemAdapter(val systemViewModel: SystemViewModel, val lifecycleOwner: Li
         }
 
         fun bindWithModel(model: SystemViewModel) {
-            val recyclerView = itemView.findViewById<RecyclerView>(R.id.recycleView_sys)
+            val recyclerView = itemView.findViewById<RecyclerView>(R.id.RecycleView)
             model.getSystemData(recyclerView.adapter as SysSystemAdapter)
         }
 
