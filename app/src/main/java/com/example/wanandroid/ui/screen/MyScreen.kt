@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.wanandroid.databinding.ScreenMyBinding
 
@@ -25,8 +26,7 @@ class MyScreen : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(MyViewModel::class.java)
+        val notificationsViewModel by activityViewModels<MyViewModel>()
 
         _binding = ScreenMyBinding.inflate(inflater, container, false)
         val root: View = binding.root
