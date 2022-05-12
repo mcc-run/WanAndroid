@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.Factory.SysArticleDataSourceFactory
 import com.example.wanandroid.R
 import com.example.wanandroid.entity.data
+import com.example.wanandroid.recycleViewDrag.Helper
 
 class SysSysDetailAdapter(val children: List<data>, val lifecycleOwner: LifecycleOwner, val context: Context) :
     RecyclerView.Adapter<SysSysDetailAdapter.Holder>() {
@@ -41,6 +42,8 @@ class SysSysDetailAdapter(val children: List<data>, val lifecycleOwner: Lifecycl
         fun bindWithId(id: Int,lifecycleOwner: LifecycleOwner,context: Context) {
             val adapter = SysSysItemAdapter(R.id.action_sysSysDetailFragment_to_articleFragment2)
             val recycleView = itemView.findViewById<RecyclerView>(R.id.RecycleView)
+            val helper = Helper.getHelper(enableDrag = true, enableSwipe = true)
+            helper.attachToRecyclerView(recycleView)
             recycleView.adapter = adapter
             recycleView.layoutManager = LinearLayoutManager(context)
 //    用于获取文章列表

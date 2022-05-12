@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.R
+import com.example.wanandroid.recycleViewDrag.Helper
 import com.example.wanandroid.viewmodel.SystemViewModel
 
 
@@ -52,6 +53,8 @@ class SystemAdapter(val systemViewModel: SystemViewModel, val lifecycleOwner: Li
 
         fun bindWithModel(model: SystemViewModel) {
             val recyclerView = itemView.findViewById<RecyclerView>(R.id.RecycleView)
+            val helper = Helper.getHelper(enableDrag = true, enableSwipe = true)
+            helper.attachToRecyclerView(recyclerView)
             model.getSystemData(recyclerView.adapter as SysSystemAdapter)
         }
 
