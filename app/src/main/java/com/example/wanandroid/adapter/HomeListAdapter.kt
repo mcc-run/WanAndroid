@@ -13,6 +13,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.jetpackstudy.recycleViewDrag.ItemTouchHelperImpl
 import com.example.wanandroid.R
 import com.example.wanandroid.datasource.NetworkStatus
 import com.example.wanandroid.entity.ArticleEntity
@@ -77,7 +78,9 @@ class HomeListAdapter(val homeListViewModel: HomeListViewModel) :
         when (holder.itemViewType) {
             R.layout.article_item_layout -> {
                 val article = getItem(position-1) ?: return
-                (holder as ArticleHolder).bindWithArticle(article)
+                (holder as ArticleHolder).let {
+                    it.bindWithArticle(article)
+                }
             }
             R.layout.slideshow_layout -> {
                 (holder as SlideShowHolder).bindWithViewModel(homeListViewModel)
@@ -163,6 +166,7 @@ class HomeListAdapter(val homeListViewModel: HomeListViewModel) :
             fun newInstance(parent: ViewGroup): ArticleHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.article_item_layout, parent, false)
+
                 return ArticleHolder(view)
             }
         }
@@ -190,7 +194,6 @@ class HomeListAdapter(val homeListViewModel: HomeListViewModel) :
                         this.findNavController().navigate(R.id.action_homeListFragment_to_articleFragment,bundle)
                     }
                 }
-
             }
         }
 

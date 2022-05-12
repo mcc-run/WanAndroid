@@ -2,7 +2,6 @@ package com.example.wanandroid.ui.fragment
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.adapter.HomeListAdapter
-import com.example.wanandroid.adapter.SlideShowAdapter
 import com.example.wanandroid.databinding.HomeListFragmentBinding
 import com.example.wanandroid.datasource.NetworkStatus
+import com.example.wanandroid.recycleViewDrag.Helper
 import com.example.wanandroid.viewmodel.HomeListViewModel
 
 class HomeListFragment : Fragment() {
@@ -49,8 +48,10 @@ class HomeListFragment : Fragment() {
 
     private fun initRecycleView(): HomeListAdapter {
         //        配置适配器
+        val helper = Helper.getHelper(enableDrag = true, enableSwipe = true)
         val homeListAdapter = HomeListAdapter(homeListViewModel)
         binding.recycleViewHomeList.apply {
+            helper.attachToRecyclerView(this)
             adapter = homeListAdapter
             val manager = LinearLayoutManager(requireContext())
             layoutManager = manager

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wanandroid.Factory.PubArticleDataSourceFactory
 import com.example.wanandroid.R
 import com.example.wanandroid.entity.data
+import com.example.wanandroid.recycleViewDrag.Helper
 
 class PubViewPagerAdapter(
     val author: MutableLiveData<List<data>?>,
@@ -42,6 +43,8 @@ class PubViewPagerAdapter(
         fun bindWithId(id: Int, lifecycleOwner: LifecycleOwner, context: Context) {
             val adapter = SysSysItemAdapter(R.id.action_publicFragment_to_articleFragment3)
             val recycleView = itemView.findViewById<RecyclerView>(R.id.RecycleView)
+            val helper = Helper.getHelper(enableDrag = true, enableSwipe = true)
+            helper.attachToRecyclerView(recycleView)
             recycleView.adapter = adapter
             recycleView.layoutManager = LinearLayoutManager(context)
 //    用于获取文章列表
